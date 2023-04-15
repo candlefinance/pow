@@ -12,7 +12,11 @@ const LINKING_ERROR =
   '- You are not using Expo Go\n';
 
 type PowProps = {
+  size: { width: number; height: number };
   color: string;
+  value: number;
+  onPress: (event: { nativeEvent: { value: number } }) => void;
+  noSound?: boolean;
   style: ViewStyle;
 };
 

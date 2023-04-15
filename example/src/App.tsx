@@ -1,12 +1,31 @@
 import * as React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { PowView } from '@candlefinance/pow';
 
 export default function App() {
+  const [value, setValue] = React.useState(100);
+
   return (
     <View style={styles.container}>
-      <PowView color="#32a852" style={styles.box} />
+      <PowView
+        onPress={(event) => {
+          console.log('press JS', event.nativeEvent.value);
+        }}
+        size={{ width: 150, height: 40 }}
+        value={value}
+        noSound={false}
+        style={styles.box}
+      />
+
+      <Pressable
+        onPress={() => {
+          setValue(value + 1);
+          console.log('press', value);
+        }}
+      >
+        <Text>press</Text>
+      </Pressable>
     </View>
   );
 }
@@ -18,8 +37,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
+    width: 150,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#d3d3d3',
   },
 });

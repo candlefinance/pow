@@ -1,6 +1,4 @@
-# @candlefinance/pow
-
-Pow lib for react native
+Wrapper for the [pow](https://movingparts.io/pow) library.
 
 ## Installation
 
@@ -11,11 +9,15 @@ npm install @candlefinance/pow
 ## Usage
 
 ```js
-import { PowView } from "@candlefinance/pow";
-
-// ...
-
-<PowView color="tomato" />
+<PowView
+  onPress={(event) => {
+    console.log('press JS', event.nativeEvent.value);
+  }}
+  size={{ width: 150, height: 40 }}
+  value={value}
+  noSound={false}
+  style={styles.box}
+/>
 ```
 
 ## Contributing

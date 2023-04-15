@@ -13,7 +13,6 @@ const LINKING_ERROR =
 
 type PowProps = {
   size: { width: number; height: number };
-  color: string;
   value: number;
   onPress: (event: { nativeEvent: { value: number } }) => void;
   noSound?: boolean;

@@ -9,13 +9,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <PowView
-        animationType="spray"
+        animationType="rise"
         onPress={(event) => {
-          console.log('press JS', event.nativeEvent.value);
+          console.log('press JS ********************', event.nativeEvent);
         }}
         noSound={false}
         size={{ width: 100, height: 40 }}
-        value={value}
+        value={`${value}`}
         style={styles.box}
       />
 

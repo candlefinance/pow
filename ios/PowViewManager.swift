@@ -21,7 +21,7 @@ enum AnimationType: String {
 final class Props: ObservableObject {
     @Published var size: CGSize = .zero
     @Published var toggle: Bool = false
-    @Published var value: Int = 0
+    @Published var value: String = ""
     @Published var noSound: Bool = true
     @Published var type: AnimationType = .rise
 }
@@ -52,6 +52,7 @@ final class PowView : UIView {
         didSet {
             if let onPress {
                 props.$toggle.sink { _ in
+                    print("*******************")
                     onPress(["value": self.props.value])
                 }.store(in: &cancellables)
             }
@@ -64,10 +65,10 @@ final class PowView : UIView {
         }
     }
 
-    @objc var value: NSNumber? = nil {
+    @objc var value: NSString? = nil {
         didSet {
             if let value {
-                props.value = value.intValue
+                props.value = value as String
             }
         }
     }

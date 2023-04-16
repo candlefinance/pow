@@ -13,23 +13,23 @@ struct PowUIView: View {
     
     @ObservedObject var props: Props
     
-    @State var localValue = 0
+    @State var localValue = ""
     @State var localSize = CGSize.zero
     
     func animationView(lessThanZero: Bool) -> some View {
-        Text(localValue.formatted())
+        Text(localValue)
             .foregroundColor(lessThanZero ? Color.red : Color.green)
             .shadow(color: (lessThanZero ? Color.red : Color.green).opacity(0.4), radius: 0.5, y: 0.5)
     }
     
     var body: some View {
         ZStack {
-            let lessThanZero = localValue <= 0
+            let lessThanZero = localValue.contains("-")
             let pick = SoundEffect(
                 lessThanZero ? "drip.falling" : "drip.rising"
             )
             Label {
-                Text(localValue.formatted())
+                Text(localValue)
                     .monospacedDigit()
                     .changeEffect(
                         props.type == .rise
@@ -52,7 +52,7 @@ struct PowUIView: View {
             )
         }
         .onTapGesture {
-            props.toggle = !props.toggle
+            props.toggle.toggle()
         }
         .onReceive(props.$size) { value in
             withAnimation(.movingParts.overshoot(duration: 0.4)) {

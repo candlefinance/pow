@@ -1,6 +1,6 @@
 {
   "name": "@candlefinance/pow",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",

@@ -1,0 +1,249 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-macos12 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Pow
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AVFoundation
+import CoreGraphics
+import Dispatch
+import Foundation
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import simd
+extension Pow.AnyChangeEffect {
+  public static func jump(height: CoreFoundation.CGFloat) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static func move(edge: SwiftUI.Edge) -> SwiftUI.AnyTransition
+  public static func move(angle: SwiftUI.Angle) -> SwiftUI.AnyTransition
+}
+public struct AnyChangeEffect {
+  public func delay(_ delay: Swift.Double) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var anvil: SwiftUI.AnyTransition {
+    get
+  }
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var flip: SwiftUI.AnyTransition {
+    get
+  }
+  public static func rotate3D(_ angle: SwiftUI.Angle, axis: (x: CoreFoundation.CGFloat, y: CoreFoundation.CGFloat, z: CoreFoundation.CGFloat), anchor: SwiftUI.UnitPoint = .center, anchorZ: CoreFoundation.CGFloat = 0, perspective: CoreFoundation.CGFloat = 1) -> SwiftUI.AnyTransition
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static func iris(origin: SwiftUI.UnitPoint = .center, blurRadius: CoreFoundation.CGFloat = 0) -> SwiftUI.AnyTransition
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var blur: SwiftUI.AnyTransition {
+    get
+  }
+}
+extension Pow.AnyChangeEffect {
+  public static var spin: Pow.AnyChangeEffect {
+    get
+  }
+  public static func spin(axis: (x: CoreFoundation.CGFloat, y: CoreFoundation.CGFloat, z: CoreFoundation.CGFloat), anchor: SwiftUI.UnitPoint = .center, anchorZ: CoreFoundation.CGFloat = 0, perspective: CoreFoundation.CGFloat = 1 / 6) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var pop: SwiftUI.AnyTransition {
+    get
+  }
+  public static func pop<S>(_ style: S) -> SwiftUI.AnyTransition where S : SwiftUI.ShapeStyle
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var poof: SwiftUI.AnyTransition {
+    get
+  }
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var vanish: SwiftUI.AnyTransition {
+    get
+  }
+  public static func vanish<T>(_ style: T) -> SwiftUI.AnyTransition where T : SwiftUI.ShapeStyle
+  public static func vanish<T, S>(_ style: T, mask: S, eoFill: Swift.Bool = false) -> SwiftUI.AnyTransition where T : SwiftUI.ShapeStyle, S : SwiftUI.Shape
+}
+extension SwiftUI.View {
+  public func particleLayer(name: Swift.AnyHashable) -> some SwiftUI.View
+  
+}
+public struct ParticleLayer : Swift.Hashable {
+  public static func named(_ name: Swift.AnyHashable) -> Pow.ParticleLayer
+  public static var local: Pow.ParticleLayer {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: Pow.ParticleLayer, b: Pow.ParticleLayer) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var clock: SwiftUI.AnyTransition {
+    get
+  }
+  public static func clock(origin: SwiftUI.UnitPoint = .center, blurRadius: CoreFoundation.CGFloat) -> SwiftUI.AnyTransition
+}
+extension Pow.AnyChangeEffect {
+  public static var shine: Pow.AnyChangeEffect {
+    get
+  }
+  public static func shine(duration: Swift.Double) -> Pow.AnyChangeEffect
+  public static func shine(angle: SwiftUI.Angle, duration: Swift.Double = 1.0) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var filmExposure: SwiftUI.AnyTransition {
+    get
+  }
+  public static var snapshot: SwiftUI.AnyTransition {
+    get
+  }
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var swoosh: SwiftUI.AnyTransition {
+    get
+  }
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static func wipe(edge: SwiftUI.Edge, blurRadius: CoreFoundation.CGFloat = 0) -> SwiftUI.AnyTransition
+  public static func wipe(angle: SwiftUI.Angle, blurRadius: CoreFoundation.CGFloat = 0) -> SwiftUI.AnyTransition
+}
+extension Pow.AnyChangeEffect {
+  public static var shake: Pow.AnyChangeEffect {
+    get
+  }
+  public enum ShakeRate {
+    case `default`
+    case fast
+    public static func == (a: Pow.AnyChangeEffect.ShakeRate, b: Pow.AnyChangeEffect.ShakeRate) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static func shake(rate: Pow.AnyChangeEffect.ShakeRate) -> Pow.AnyChangeEffect
+}
+extension Pow.AnyChangeEffect {
+  public static func ping(shape: some InsettableShape, count: Swift.Int) -> Pow.AnyChangeEffect
+  public static func ping(shape: some InsettableShape, style: some ShapeStyle, count: Swift.Int) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public enum BlindsStyle {
+    case venetian
+    case vertical
+    public static func == (a: SwiftUI.AnyTransition.MovingParts.BlindsStyle, b: SwiftUI.AnyTransition.MovingParts.BlindsStyle) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static var blinds: SwiftUI.AnyTransition {
+    get
+  }
+  public static func blinds(slatWidth: CoreFoundation.CGFloat, style: SwiftUI.AnyTransition.MovingParts.BlindsStyle = .venetian, isStaggered: Swift.Bool = false) -> SwiftUI.AnyTransition
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var flicker: SwiftUI.AnyTransition {
+    get
+  }
+  public static func flicker(count: Swift.Int) -> SwiftUI.AnyTransition
+}
+extension SwiftUI.Animation {
+  public enum MovingParts {
+  }
+  public static var movingParts: SwiftUI.Animation.MovingParts.Type {
+    get
+  }
+}
+extension SwiftUI.AnyTransition {
+  public enum MovingParts {
+  }
+  public static var movingParts: SwiftUI.AnyTransition.MovingParts.Type {
+    get
+  }
+}
+extension Pow.AnyChangeEffect {
+  public static func spray(origin: SwiftUI.UnitPoint = .center, layer: Pow.ParticleLayer = .local, @SwiftUI.ViewBuilder _ particles: () -> some View) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.Animation.MovingParts {
+  public static var anticipate: SwiftUI.Animation {
+    get
+  }
+  public static func anticipate(duration: Swift.Double) -> SwiftUI.Animation
+  public static var overshoot: SwiftUI.Animation {
+    get
+  }
+  public static func overshoot(duration: Swift.Double) -> SwiftUI.Animation
+  public static var anticipateOvershoot: SwiftUI.Animation {
+    get
+  }
+  public static func anticipateOvershoot(duration: Swift.Double) -> SwiftUI.Animation
+}
+extension SwiftUI.Animation.MovingParts {
+  public static var easeInExponential: SwiftUI.Animation {
+    get
+  }
+  public static func easeInExponential(duration: Swift.Double) -> SwiftUI.Animation
+  public static var easeOutExponential: SwiftUI.Animation {
+    get
+  }
+  public static func easeOutExponential(duration: Swift.Double) -> SwiftUI.Animation
+  public static var easeInOutExponential: SwiftUI.Animation {
+    get
+  }
+  public static func easeInOutExponential(duration: Swift.Double) -> SwiftUI.Animation
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public enum SkidDirection {
+    case leading
+    case trailing
+    public static func == (a: SwiftUI.AnyTransition.MovingParts.SkidDirection, b: SwiftUI.AnyTransition.MovingParts.SkidDirection) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public static var skid: SwiftUI.AnyTransition {
+    get
+  }
+  public static func skid(direction: SwiftUI.AnyTransition.MovingParts.SkidDirection) -> SwiftUI.AnyTransition
+}
+extension Pow.AnyChangeEffect {
+  public static func rise(origin: SwiftUI.UnitPoint = .center, layer: Pow.ParticleLayer = .local, @SwiftUI.ViewBuilder _ particles: () -> some View) -> Pow.AnyChangeEffect
+  @available(*, deprecated, renamed: "rise(origin:_:)")
+  public static func risingParticle(origin: SwiftUI.UnitPoint = .center, @SwiftUI.ViewBuilder _ particle: () -> some View) -> Pow.AnyChangeEffect
+}
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var boing: SwiftUI.AnyTransition {
+    get
+  }
+  public static func boing(edge: SwiftUI.Edge) -> SwiftUI.AnyTransition
+}
+extension SwiftUI.View {
+  public func changeEffect<V>(_ effect: Pow.AnyChangeEffect, value: V, isEnabled: @autoclosure @escaping () -> Swift.Bool = true) -> some SwiftUI.View where V : Swift.Equatable
+  
+}
+public enum PowUnlockReason {
+  case iDidBuyTheLicense
+  public static func == (a: Pow.PowUnlockReason, b: Pow.PowUnlockReason) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public func unlockPow(reason: Pow.PowUnlockReason)
+extension SwiftUI.AnyTransition.MovingParts {
+  public static var glare: SwiftUI.AnyTransition {
+    get
+  }
+  public static func glare(angle: SwiftUI.Angle, color: SwiftUI.Color = .white) -> SwiftUI.AnyTransition
+}
+extension Pow.AnyChangeEffect.ShakeRate : Swift.Equatable {}
+extension Pow.AnyChangeEffect.ShakeRate : Swift.Hashable {}
+extension SwiftUI.AnyTransition.MovingParts.BlindsStyle : Swift.Equatable {}
+extension SwiftUI.AnyTransition.MovingParts.BlindsStyle : Swift.Hashable {}
+extension SwiftUI.AnyTransition.MovingParts.SkidDirection : Swift.Equatable {}
+extension SwiftUI.AnyTransition.MovingParts.SkidDirection : Swift.Hashable {}
+extension Pow.PowUnlockReason : Swift.Equatable {}
+extension Pow.PowUnlockReason : Swift.Hashable {}

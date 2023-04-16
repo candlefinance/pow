@@ -6,5 +6,6 @@ RCT_EXPORT_VIEW_PROPERTY(size, NSDictionary)
 RCT_EXPORT_VIEW_PROPERTY(onPress, RCTBubblingEventBlock)
 RCT_EXPORT_VIEW_PROPERTY(value, NSNumber)
 RCT_EXPORT_VIEW_PROPERTY(noSound, BOOL)
+RCT_EXPORT_VIEW_PROPERTY(animationType, NSString)
 
 @end

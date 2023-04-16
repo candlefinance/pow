@@ -16,6 +16,7 @@ type PowProps = {
   value: number;
   onPress: (event: { nativeEvent: { value: number } }) => void;
   noSound?: boolean;
+  animationType: 'rise' | 'spray';
   style: ViewStyle;
 };
 

@@ -14,16 +14,29 @@ class PowViewManager: RCTViewManager {
     }
 }
 
+enum AnimationType: String {
+    case spray, rise
+}
+
 final class Props: ObservableObject {
     @Published var size: CGSize = .zero
     @Published var toggle: Bool = false
     @Published var value: Int = 0
     @Published var noSound: Bool = true
+    @Published var type: AnimationType = .rise
 }
 
 final class PowView : UIView {
     var cancellables = Set<AnyCancellable>()
     let props = Props()
+    
+    @objc var animationType: String = "rise" {
+        didSet {
+            if let type = AnimationType(rawValue: animationType) {
+                props.type = type
+            }
+        }
+    }
     
     @objc var size: NSDictionary? = nil {
         didSet {
@@ -44,6 +57,7 @@ final class PowView : UIView {
             }
         }
     }
+    
     @objc var noSound: Bool = true {
         didSet {
             props.noSound = noSound

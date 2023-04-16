@@ -16,6 +16,12 @@ struct PowUIView: View {
     @State var localValue = 0
     @State var localSize = CGSize.zero
     
+    func animationView(lessThanZero: Bool) -> some View {
+        Text(localValue.formatted())
+            .foregroundColor(lessThanZero ? Color.red : Color.green)
+            .shadow(color: (lessThanZero ? Color.red : Color.green).opacity(0.4), radius: 0.5, y: 0.5)
+    }
+    
     var body: some View {
         ZStack {
             let lessThanZero = localValue <= 0
@@ -25,14 +31,15 @@ struct PowUIView: View {
             Label {
                 Text(localValue.formatted())
                     .monospacedDigit()
-                    .changeEffect(.rise {
-                        Text(localValue.formatted())
-                            .foregroundColor(lessThanZero ? Color.red : Color.green)
-                            .shadow(color: (lessThanZero ? Color.red : Color.green).opacity(0.4), radius: 0.5, y: 0.5)
-                    }, value: localValue)
+                    .changeEffect(
+                        props.type == .rise
+                        ? .rise { animationView(lessThanZero: lessThanZero) }
+                        : .spray { animationView(lessThanZero: lessThanZero) },
+                        value: localValue
+                    )
                     .changeEffect(props.noSound ?
                         .feedback(hapticImpact: .medium) :
-                        .feedback(pick), value: localValue)
+                            .feedback(pick), value: localValue)
                     .font(.system(size: 18, design: .rounded))
             } icon: {
                 Image(systemName: "arrow.up.forward")

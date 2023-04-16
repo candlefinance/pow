@@ -9,12 +9,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <PowView
+        animationType="spray"
         onPress={(event) => {
           console.log('press JS', event.nativeEvent.value);
         }}
-        size={{ width: 150, height: 40 }}
-        value={value}
         noSound={false}
+        size={{ width: 100, height: 40 }}
+        value={value}
         style={styles.box}
       />
 
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 150,
+    width: 100,
     height: 40,
     borderRadius: 20,
     backgroundColor: '#d3d3d3',

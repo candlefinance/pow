@@ -4,24 +4,21 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { PowView } from '@candlefinance/pow';
 
 export default function App() {
-  const [value, setValue] = React.useState(100);
+  const [value, setValue] = React.useState(1000);
 
   return (
     <View style={styles.container}>
       <PowView
-        animationType="rise"
-        onPress={(event) => {
-          console.log('press JS ********************', event.nativeEvent);
-        }}
-        noSound={false}
-        size={{ width: 100, height: 40 }}
+        animationType="spray"
+        isSoundOn={true}
+        size={{ width: 220, height: 40 }}
         value={`${value}`}
         style={styles.box}
       />
 
       <Pressable
         onPress={() => {
-          setValue(value + 1);
+          setValue(value * -1);
           console.log('press', value);
         }}
       >
@@ -38,7 +35,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {
-    width: 100,
+    width: 220,
     height: 40,
     borderRadius: 20,
     backgroundColor: '#d3d3d3',

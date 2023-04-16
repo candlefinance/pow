@@ -32,15 +32,17 @@ struct PowUIView: View {
                 Text(localValue)
                     .monospacedDigit()
                     .changeEffect(
-                        props.type == .rise
+                        props.type == .none
+                        ? .shine
+                        : props.type == .rise
                         ? .rise { animationView(lessThanZero: lessThanZero) }
                         : .spray { animationView(lessThanZero: lessThanZero) },
                         value: localValue
                     )
-                    .changeEffect(props.noSound ?
-                        .feedback(hapticImpact: .medium) :
-                            .feedback(pick), value: localValue)
-                    .font(.system(size: 18, design: .rounded))
+                    .changeEffect(props.isSoundOn ?
+                        .feedback(pick) :
+                        .feedback(SoundEffect("")), value: localValue)
+                    .font(.system(size: 17.5, design: .rounded))
             } icon: {
                 Image(systemName: "arrow.up.forward")
                     .foregroundStyle(lessThanZero ? Color.red : Color.green)
@@ -50,9 +52,6 @@ struct PowUIView: View {
                 Color.gray.opacity(0.0001)
                     .frame(width: localSize.width, height: localSize.height)
             )
-        }
-        .onTapGesture {
-            props.toggle.toggle()
         }
         .onReceive(props.$size) { value in
             withAnimation(.movingParts.overshoot(duration: 0.4)) {

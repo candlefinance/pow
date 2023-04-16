@@ -14,9 +14,8 @@ const LINKING_ERROR =
 type PowProps = {
   size: { width: number; height: number };
   value: string;
-  onPress: (event: { nativeEvent: { value: number } }) => void;
-  noSound?: boolean;
-  animationType: 'rise' | 'spray';
+  isSoundOn?: boolean;
+  animationType: 'rise' | 'spray' | 'none';
   style: ViewStyle;
 };
 

@@ -15,53 +15,43 @@ class PowViewManager: RCTViewManager {
 }
 
 enum AnimationType: String {
-    case spray, rise
+    case spray, rise, none
 }
 
 final class Props: ObservableObject {
     @Published var size: CGSize = .zero
-    @Published var toggle: Bool = false
     @Published var value: String = ""
-    @Published var noSound: Bool = true
-    @Published var type: AnimationType = .rise
+    @Published var isSoundOn: Bool = true
+    @Published var type: AnimationType = .none
 }
 
 final class PowView : UIView {
     var cancellables = Set<AnyCancellable>()
     let props = Props()
     
-    @objc var animationType: String = "rise" {
+    @objc var animationType: String = "none" {
         didSet {
-            if let type = AnimationType(rawValue: animationType) {
+            if let type = AnimationType(rawValue: animationType), type != .none {
                 props.type = type
+                vc.view.clipsToBounds = false
+                clipsToBounds = false
             }
         }
     }
     
     @objc var size: NSDictionary? = nil {
         didSet {
-            if let size {
-                let width = size["width"] as! CGFloat
-                let height = size["height"] as! CGFloat
+            if let size,
+                let width = size["width"] as? CGFloat,
+                let height = size["height"] as? CGFloat {
                 props.size = .init(width: width, height: height)
             }
         }
     }
     
-    @objc var onPress: RCTDirectEventBlock? = nil {
+    @objc var isSoundOn: Bool = true {
         didSet {
-            if let onPress {
-                props.$toggle.sink { _ in
-                    print("*******************")
-                    onPress(["value": self.props.value])
-                }.store(in: &cancellables)
-            }
-        }
-    }
-    
-    @objc var noSound: Bool = true {
-        didSet {
-            props.noSound = noSound
+            props.isSoundOn = isSoundOn
         }
     }
 
@@ -81,12 +71,11 @@ final class PowView : UIView {
         super.init(frame: frame)
         addSubview(vc.view)
         vc.view.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
-            vc.view.trailingAnchor.constraint(equalTo: trailingAnchor),
+            vc.view.centerXAnchor.constraint(equalTo: centerXAnchor),
+            vc.view.centerYAnchor.constraint(equalTo: centerYAnchor),
             vc.view.leadingAnchor.constraint(equalTo: leadingAnchor),
-            vc.view.topAnchor.constraint(equalTo: topAnchor),
-            vc.view.bottomAnchor.constraint(equalTo: bottomAnchor),
+            vc.view.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])
     }
     

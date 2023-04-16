@@ -4,15 +4,15 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { PowView } from '@candlefinance/pow';
 
 export default function App() {
-  const [value, setValue] = React.useState(1000);
+  const [value, setValue] = React.useState(1000000);
 
   return (
     <View style={styles.container}>
       <PowView
         animationType="spray"
-        isSoundOn={true}
         size={{ width: 220, height: 40 }}
         value={`${value}`}
+        isSoundOn={true}
         style={styles.box}
       />
 

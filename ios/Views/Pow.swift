@@ -35,13 +35,13 @@ struct PowUIView: View {
                         props.type == .none
                         ? .shine
                         : props.type == .rise
-                        ? .rise { animationView(lessThanZero: lessThanZero) }
-                        : .spray { animationView(lessThanZero: lessThanZero) },
+                        ? .rise(origin: .bottom) { animationView(lessThanZero: lessThanZero) }
+                        : .spray(origin: .bottom) { animationView(lessThanZero: lessThanZero) },
                         value: localValue
                     )
                     .changeEffect(props.isSoundOn ?
                         .feedback(pick) :
-                        .feedback(SoundEffect("")), value: localValue)
+                            .feedback(SoundEffect("none")), value: localValue)
                     .font(.system(size: 17.5, design: .rounded))
             } icon: {
                 Image(systemName: "arrow.up.forward")

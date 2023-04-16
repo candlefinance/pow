@@ -21,7 +21,7 @@ enum AnimationType: String {
 final class Props: ObservableObject {
     @Published var size: CGSize = .zero
     @Published var value: String = ""
-    @Published var isSoundOn: Bool = true
+    @Published var isSoundOn: Bool = false
     @Published var type: AnimationType = .none
 }
 
@@ -49,7 +49,7 @@ final class PowView : UIView {
         }
     }
     
-    @objc var isSoundOn: Bool = true {
+    @objc var isSoundOn: Bool = false {
         didSet {
             props.isSoundOn = isSoundOn
         }
@@ -72,8 +72,8 @@ final class PowView : UIView {
         addSubview(vc.view)
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            vc.view.centerXAnchor.constraint(equalTo: centerXAnchor),
-            vc.view.centerYAnchor.constraint(equalTo: centerYAnchor),
+            vc.view.heightAnchor.constraint(equalTo: heightAnchor),
+            vc.view.widthAnchor.constraint(equalTo: widthAnchor),
             vc.view.leadingAnchor.constraint(equalTo: leadingAnchor),
             vc.view.trailingAnchor.constraint(equalTo: trailingAnchor)
         ])

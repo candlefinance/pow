@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
   s.resources = "ios/Sounds/*.m4a"
+  s.static_framework = true
 
   s.dependency "React-Core"
 

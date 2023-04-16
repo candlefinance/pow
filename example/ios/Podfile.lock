@@ -1,6 +1,6 @@
 PODS:
   - boost (1.76.0)
-  - candlefinance-pow (0.1.0):
+  - candlefinance-pow (0.2.0):
     - React-Core
   - CocoaAsyncSocket (7.6.5)
   - DoubleConversion (1.1.6)
@@ -574,7 +574,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: 57d2868c099736d80fcd648bf211b4431e51a558
-  candlefinance-pow: 9a5afb52165f6b090e2abbdd56182a3ae275680d
+  candlefinance-pow: 38556f676fcabc8b875666c019710b5c177f4ea7
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   FBLazyVector: a83ceaa8a8581003a623facdb3c44f6d4f342ac5

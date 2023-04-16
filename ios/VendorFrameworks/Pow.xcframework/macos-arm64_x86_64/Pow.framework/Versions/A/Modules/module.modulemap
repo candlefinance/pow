@@ -1,4 +1,0 @@
-framework module Pow {
-  header "Pow-Swift.h"
-  requires objc
-}

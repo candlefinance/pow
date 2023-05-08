@@ -1,6 +1,6 @@
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/candlefinance.svg?style=social&label=Follow%20%40candlefinance)](https://twitter.com/candlefinance) [![npm version](https://badge.fury.io/js/%40candlefinance%2Fpow.svg)](https://badge.fury.io/js/%40candlefinance%2Fpow)[![npm downloads](https://img.shields.io/npm/dm/%40candlefinance%2Fpow.svg)](https://npm.im/%40candlefinance%2Fpow)
 
-A bride for the [Pow](https://movingparts.io/pow) SwiftUI library to React Native. There are two animations available, check out the video below to see them in action.
+A bridge for the [Pow's](https://movingparts.io/pow) SwiftUI library to React Native. There are two animations available, check out the video below to see them in action.
 
 [![Watch the video](https://user-images.githubusercontent.com/12258850/236861875-228fecbb-2b09-4629-b47d-1e5dc23b8738.png)](https://user-images.githubusercontent.com/12258850/236861212-55ffb63e-93db-4c91-93f6-8f8dbd5ac5b6.mp4)
 

@@ -15,12 +15,10 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/candlefinance/pow.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
-  s.resources = "ios/Sounds/*.m4a"
-  s.static_framework = true
+  s.swift_version = '5.5'
 
   s.dependency "React-Core"
-
-  s.ios.vendored_frameworks = "ios/VendorFrameworks/Pow.xcframework"
+  s.dependency "Pow"
 
   # Don't install the dependencies when we run `pod install` in the old architecture.
   if ENV['RCT_NEW_ARCH_ENABLED'] == '1' then

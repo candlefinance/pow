@@ -8,7 +8,16 @@ A bridge for the [Pow's](https://github.com/EmergeTools/Pow) SwiftUI library to 
 
 ```sh
 yarn add @candlefinance/pow
+
 ```
+
+Add the following to your target's Podfile:
+
+```ruby
+  pod 'Pow', :podspec => 'https://raw.githubusercontent.com/candlefinance/podspecs/main/Pow/Pow.podspec'
+```
+
+> Pow is not yet available on CocoaPods, so you'll need to add the above to your Podfile manually.
 
 ## Usage
 
